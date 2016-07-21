@@ -24,7 +24,7 @@ public class AdjustFullScreenCoordinatorLayout extends CoordinatorLayout {
 
   public AdjustFullScreenCoordinatorLayout(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    calculator = DisplayCalculator.with(context);
+    calculator = DisplayCalculator.with(this);
   }
 
   @Override public void onAttachedToWindow() {

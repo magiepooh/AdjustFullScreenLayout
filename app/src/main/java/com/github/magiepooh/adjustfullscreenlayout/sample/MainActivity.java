@@ -41,8 +41,22 @@ public class MainActivity extends AppCompatActivity implements OnClickImageCallb
     pager.setPageMargin(-pageMargin);
     pager.setAdapter(new MainPagerAdapter(getSupportFragmentManager()));
 
-
     adjustFullScreenLayout.toFullScreen();
+    adjustFullScreenLayout.setScreenStateChangeListener(
+        new AdjustFullScreenLayout.ScreenStateChangeListener() {
+          @Override
+          public void onScreenStateChanged(AdjustFullScreenLayout.ScreenState screenState) {
+            if (screenState == AdjustFullScreenLayout.ScreenState.FULL) {
+              if (!isFullScreen) {
+                //toFullScreen();
+              }
+            } else {
+              if (isFullScreen) {
+                //toNormalScreen();
+              }
+            }
+          }
+        });
   }
 
   @Override public void onClickImage() {
